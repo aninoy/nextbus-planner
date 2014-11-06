@@ -1,5 +1,25 @@
 <ion-view title="Add">
 	<ion-content padding="true" class="has-header">
 		<h3>Add a new fav</h3>
+		<form>
+			<ion-list>
+				<label class="item item-input">
+					<span class="input-label">Fav Name</span>
+					<input type="text" ng-model="fav.name" placeholder="">
+				</label>
+				<label class="item item-input">
+					<span class="input-label">Zip Code</span>
+					<input type="number" placeholder="" maxlength="5" ng-model="fav.zipCode">
+				</label>
+			</ion-list>
+			<button class="button button-stable button-block" ng-click="getAgencies()">View Agencies</button>
+		</form>
+
+		<h6>Agencies Available for: {{fav.state}}</h6>
+		<ion-list>
+			<ion-item ng-repeat="agency in agencies">
+				{{agency._attr.title._value}}
+			</ion-item>
+		</ion-list>
 	</ion-content>
 </ion-view>
